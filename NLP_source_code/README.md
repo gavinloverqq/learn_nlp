@@ -14,7 +14,7 @@
 |...        |...                          |
 |ch08       |第8章使用的源代码            |
 |common     |共同使用的源代码             |
-|dataset    |数据集用的源代码             | 
+|dataset    |数据集用的源代码             |
 
 训练完的权重文件（第6~7章使用）可从以下URL获取。
 <https://www.oreilly.co.jp/pub/9784873118369/BetterRnnlm.pkl>

@@ -1,7 +1,9 @@
 # coding: utf-8
 import sys
+
+import numpy
 sys.path.append('..')  # 为了引入父目录的文件而进行的设定
-import numpy as np
+import cupy as np
 from common.optimizer import SGD
 from dataset import spiral
 import matplotlib.pyplot as plt
@@ -53,7 +55,9 @@ for epoch in range(max_epoch):
 
 
 # 绘制学习结果
-plt.plot(np.arange(len(loss_list)), loss_list, label='train')
+ll = np.arange(len(loss_list))
+lll = [x.get() for x in loss_list]
+plt.plot([x.get() for x  in ll], lll, label='train')
 plt.xlabel('iterations (x10)')
 plt.ylabel('loss')
 plt.show()

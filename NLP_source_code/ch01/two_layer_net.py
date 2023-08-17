@@ -1,7 +1,7 @@
 # coding: utf-8
 import sys
 sys.path.append('..')  # 为了引入父目录的文件而进行的设定
-import numpy as np
+import cupy as np
 from common.layers import Affine, Sigmoid, SoftmaxWithLoss
 
 

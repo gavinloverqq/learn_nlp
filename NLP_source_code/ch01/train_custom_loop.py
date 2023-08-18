@@ -71,7 +71,7 @@ X = np.c_[xx.ravel(), yy.ravel()]
 score = model.predict(X)
 predict_cls = np.argmax(score, axis=1)
 Z = predict_cls.reshape(xx.shape)
-plt.contourf(xx, yy, Z)
+plt.contourf([x.get() for x in xx], [y.get() for y in yy], [z.get() for z in Z])
 plt.axis('off')
 
 # 绘制数据点
@@ -80,5 +80,5 @@ N = 100
 CLS_NUM = 3
 markers = ['o', 'x', '^']
 for i in range(CLS_NUM):
-    plt.scatter(x[i*N:(i+1)*N, 0], x[i*N:(i+1)*N, 1], s=40, marker=markers[i])
+    plt.scatter([t.get() for t in x[i*N:(i+1)*N, 0]], [t.get() for t in x[i*N:(i+1)*N, 1]], s=40, marker=markers[i])
 plt.show()

@@ -10,7 +10,7 @@
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
-            "cwd": "${workspaceFolder}/NLP_source_code/ch01/",
+            "cwd": "${workspaceFolder}/NLP_source_code/ch02/",
             "python":"${command:python.interpreterPath}",
             "justMyCode": true
         }

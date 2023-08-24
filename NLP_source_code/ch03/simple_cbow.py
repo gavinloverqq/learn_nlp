@@ -23,6 +23,7 @@ class SimpleCBOW:
         layers = [self.in_layer0, self.in_layer1, self.out_layer]
         self.params, self.grads = [], []
         for layer in layers:
+            # print self.params, and grads
             self.params += layer.params
             self.grads += layer.grads
 

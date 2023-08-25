@@ -30,3 +30,5 @@ trainer.plot()
 word_vecs = model.word_vecs
 for word_id, word in id_to_word.items():
     print(word, word_vecs[word_id])
+
+input("test")

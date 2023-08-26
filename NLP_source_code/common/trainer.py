@@ -6,7 +6,7 @@ import time
 import matplotlib.pyplot as plt
 from common.np import *  # import numpy as np
 from common.util import clip_grads
-
+import copy
 
 class Trainer:
     def __init__(self, model, optimizer):
@@ -143,6 +143,7 @@ def remove_duplicate(params, grads):
     加上与该权重对应的梯度
     '''
     params, grads = params[:], grads[:]  # copy list
+    # params, grads = copy.deepcopy(params[:]), copy.deepcopy(grads[:])  # 这里用了引用，所以每次能更新params，如果深拷贝，则无法更新params，
 
     while True:
         find_flg = False

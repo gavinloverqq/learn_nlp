@@ -16,7 +16,7 @@ class CBOW:
 
         # 生成层
         self.in_layers = []
-        for i in range(2 * window_size):
+        for i in range(2 * window_size): # 通过 window_size 指定上下文的大小，即上下文包含多少个周围单词。如果 window_size 是 2，则目标词的左右 2 个单词（共 4 个单词）将成为上下文。
             layer = Embedding(W_in)  # 使用Embedding层
             self.in_layers.append(layer)
         self.ns_loss = NegativeSamplingLoss(W_out, corpus, power=0.75, sample_size=5)
@@ -31,6 +31,7 @@ class CBOW:
         # 将单词的分布式表示设置为成员变量
         self.word_vecs = W_in
 
+# 但是它们是单词 ID 形式的（上一章中使用的是 one-hot 向量，不是单词 ID）
     def forward(self, contexts, target):
         h = 0
         for i, layer in enumerate(self.in_layers):

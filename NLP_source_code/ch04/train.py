@@ -4,7 +4,7 @@ sys.path.append('..')
 from common import config
 # 在用GPU运行时，请打开下面的注释（需要cupy）
 # ===============================================
-# config.GPU = True
+config.GPU = True
 # ===============================================
 from common.np import *
 import pickle
@@ -51,3 +51,5 @@ params['id_to_word'] = id_to_word
 pkl_file = 'cbow_params.pkl'  # or 'skipgram_params.pkl'
 with open(pkl_file, 'wb') as f:
     pickle.dump(params, f, -1)
+
+input("test")

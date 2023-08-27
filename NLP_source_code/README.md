@@ -33,6 +33,7 @@
 
 * SciPy（可选）
 * CuPy（可选）
+* pip install "cupy<8.0.0" 
 
 ## 执行方法
 

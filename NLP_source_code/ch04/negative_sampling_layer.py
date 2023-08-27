@@ -47,6 +47,7 @@ class UnigramSampler:
         for i in range(vocab_size):
             self.word_p[i] = counts[i]
 
+        # 让低频率的单词更容易抽到
         self.word_p = np.power(self.word_p, power)
         self.word_p /= np.sum(self.word_p)
 

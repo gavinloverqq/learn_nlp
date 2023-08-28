@@ -29,7 +29,7 @@ class RNN:
         dWx = np.dot(x.T, dt)
         dx = np.dot(dt, Wx.T)
 
-        self.grads[0][...] = dWx
+        self.grads[0][...] = dWx # self.grads[0] = dWx ? is ok?
         self.grads[1][...] = dWh
         self.grads[2][...] = db
 

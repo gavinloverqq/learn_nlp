@@ -51,14 +51,14 @@ class TimeRNN:
         D, H = Wx.shape
 
         self.layers = []
-        hs = np.empty((N, T, H), dtype='f')
+        hs = np.empty((N, T, H), dtype='f') # 考虑为什么 N*T*H
 
         if not self.stateful or self.h is None:
-            self.h = np.zeros((N, H), dtype='f')
+            self.h = np.zeros((N, H), dtype='f')# 考虑为什么 N*H
 
         for t in range(T):
             layer = RNN(*self.params)
-            self.h = layer.forward(xs[:, t, :], self.h)
+            self.h = layer.forward(xs[:, t, :], self.h) # 这里设置了输入的h  可以在上面重置
             hs[:, t, :] = self.h
             self.layers.append(layer)
 
@@ -77,10 +77,10 @@ class TimeRNN:
             dx, dh = layer.backward(dhs[:, t, :] + dh)
             dxs[:, t, :] = dx
 
-            for i, grad in enumerate(layer.grads):
+            for i, grad in enumerate(layer.grads): 
                 grads[i] += grad
 
-        for i, grad in enumerate(grads):
+        for i, grad in enumerate(grads): # 3 dWx, dWh, db
             self.grads[i][...] = grad
         self.dh = dh
 

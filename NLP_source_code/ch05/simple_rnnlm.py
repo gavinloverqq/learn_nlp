@@ -11,16 +11,16 @@ class SimpleRnnlm:
         rn = np.random.randn
 
         # 初始化权重
-        embed_W = (rn(V, D) / 100).astype('f')
+        embed_W = (rn(V, D) / 100).astype('f') # shap(V, D) random data
         rnn_Wx = (rn(D, H) / np.sqrt(D)).astype('f')
         rnn_Wh = (rn(H, H) / np.sqrt(H)).astype('f')
         rnn_b = np.zeros(H).astype('f')
-        affine_W = (rn(H, V) / np.sqrt(H)).astype('f')
+        affine_W = (rn(H, V) / np.sqrt(H)).astype('f') # output is V dims, input is RNN -> ht = N * H, so W =  H * V
         affine_b = np.zeros(V).astype('f')
 
         # 生成层
         self.layers = [
-            TimeEmbedding(embed_W),
+            TimeEmbedding(),
             TimeRNN(rnn_Wx, rnn_Wh, rnn_b, stateful=True),
             TimeAffine(affine_W, affine_b)
         ]

@@ -20,7 +20,7 @@ class SimpleRnnlm:
 
         # 生成层
         self.layers = [
-            TimeEmbedding(),
+            TimeEmbedding(embed_W),
             TimeRNN(rnn_Wx, rnn_Wh, rnn_b, stateful=True),
             TimeAffine(affine_W, affine_b)
         ]

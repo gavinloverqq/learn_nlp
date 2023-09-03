@@ -4,7 +4,7 @@ sys.path.append('..')
 from common import config
 # 在用GPU运行时，请打开下面的注释（需要cupy）
 # ==============================================
-# config.GPU = True
+config.GPU = True
 # ==============================================
 from common.optimizer import SGD
 from common.trainer import RnnlmTrainer
@@ -14,6 +14,7 @@ from better_rnnlm import BetterRnnlm
 
 
 # 设定超参数
+batch_size = 20
 wordvec_size = 650
 hidden_size = 650
 time_size = 35

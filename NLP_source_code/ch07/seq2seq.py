@@ -100,6 +100,7 @@ class Seq2seq(BaseModel):
         self.params = self.encoder.params + self.decoder.params
         self.grads = self.encoder.grads + self.decoder.grads
 
+    # 注意encoder输入是xs，也就是12+23， decoder输入是_35 和 h
     def forward(self, xs, ts):
         decoder_xs, decoder_ts = ts[:, :-1], ts[:, 1:]
 

@@ -41,3 +41,4 @@ print('test perplexity: ', ppl_test)
 
 # 保存参数
 model.save_params()
+input("test")

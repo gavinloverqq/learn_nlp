@@ -195,7 +195,8 @@ def clip_grads(grads, max_norm):
 
 def eval_perplexity(model, corpus, batch_size=10, time_size=35):
     print('evaluating perplexity ...')
-    corpus_size = len(corpus)
+    corpus_size = corpus.size
+    # corpus_size = len(corpus)
     total_loss, loss_cnt = 0, 0
     max_iters = (corpus_size - 1) // (batch_size * time_size)
     jump = (corpus_size - 1) // batch_size

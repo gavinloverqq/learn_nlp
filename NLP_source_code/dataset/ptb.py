@@ -84,7 +84,7 @@ def load_data(data_type='train'):
     word_to_id, id_to_word = load_vocab()
 
     if os.path.exists(save_path):
-        corpus = np.load(save_path)
+        corpus = np.load(save_path,allow_pickle=True)
         return corpus, word_to_id, id_to_word
 
     file_name = key_file[data_type]
@@ -92,7 +92,11 @@ def load_data(data_type='train'):
     _download(file_name)
 
     words = open(file_path).read().replace('\n', '<eos>').strip().split()
-    corpus = np.array([word_to_id[w] for w in words])
+    corpus = []
+    for w in words:
+        if w in word_to_id:
+            word_to_id[w]
+    corpus = np.array(__build_class__)
 
     np.save(save_path, corpus)
     return corpus, word_to_id, id_to_word

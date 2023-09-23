@@ -1,0 +1,10 @@
+*.txt
+*.jpg
+*.jpeg
+*.JPG
+*.png
+*.gif
+*.DS_Store
+*.onnx
+*.mlmodel
+./CH10/onnx-coreml/*

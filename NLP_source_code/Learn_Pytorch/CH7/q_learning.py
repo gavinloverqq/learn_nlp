@@ -5,11 +5,14 @@ import torch.nn as nn
 import torch.nn.functional as F
 import numpy as np
 import math
-import gym
+# import gym
 from itertools import count
 import matplotlib
 import torch.optim as optim
 import matplotlib.pyplot as plt
+
+import gymnasium as gym
+# env = gym.make('CartPole-v1', render_mode="human")
 
 
 # Hyper Parameters
@@ -21,7 +24,7 @@ TARGET_REPLACE_ITER = 100   # target update frequency
 
 
 
-env = gym.make('CartPole-v0')
+env = gym.make('CartPole-v0', render_mode="rgb_array")
 env = env.unwrapped
 
 N_ACTIONS = env.action_space.n
